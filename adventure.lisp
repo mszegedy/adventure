@@ -1,6 +1,6 @@
 #!/bin/sbcl --script
 
-;;;; adventure.lisp by Michael Szegedy
+;;;; adventure.lisp by Maria Szegedy
 ;;;; This program is free software: you can redistribute it and/or modify
 ;;;; it under the terms of the GNU General Public License as published by
 ;;;; the Free Software Foundation, either version 3 of the License, or
@@ -552,12 +552,24 @@ it stores the area you left back in *world*."
     (setf (description area)
           (format nil "This is the ~:r room." count))
     (set-item area
-      (make-instance 'item
-        :name 'oof
-        :quantity 2
-        :starts-with-vowel t
-        :description
-        "This is an oof."))
+              (make-instance 'item
+                             :name 'foo
+                             :quantity 2
+                             :description
+                             "This is a foo."))
+    (set-item area
+              (make-instance 'item
+                             :name 'oof
+                             :quantity 2
+                             :starts-with-vowel t
+                             :description
+                             "This is an oof."))
+    (set-item area
+              (make-instance 'item
+                             :name 'water
+                             :is-quantifiable nil
+                             :description
+                             "This is water."))
     (if (> count 1)
         (progn
           (set-link area
